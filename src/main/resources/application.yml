@@ -1,0 +1,6 @@
+app:
+  external-api:
+    scheme: "https"
+    baseUrl: "jsonplaceholder.typicode.com"
+    postsPath: "posts"
+    usersPath: "users"

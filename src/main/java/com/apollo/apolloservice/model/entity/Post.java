@@ -1,5 +1,6 @@
 package com.apollo.apolloservice.model.entity;
 
+import com.apollo.apolloservice.model.dto.PostDto;
 import jakarta.persistence.*;
 @Entity
 @Table(name = "post")
@@ -12,15 +13,22 @@ public class Post {
 
     private String title;
 
-    private String text;
+    private String body;
 
     public Post() {}
 
-    public Post(Long id, Long userId, String title, String text) {
+    public Post(Long id, Long userId, String title, String body) {
         this.id = id;
         this.userId = userId;
         this.title = title;
-        this.text = text;
+        this.body = body;
+    }
+
+    public Post(PostDto postDto) {
+        this.id = postDto.id();
+        this.userId = postDto.userId();
+        this.title = postDto.title();
+        this.body = postDto.body();
     }
 
     public Long getId() {
@@ -47,11 +55,11 @@ public class Post {
         this.title = title;
     }
 
-    public String getText() {
-        return text;
+    public String getBody() {
+        return body;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setBody(String text) {
+        this.body = text;
     }
 }
