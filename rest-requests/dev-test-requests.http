@@ -3,22 +3,40 @@
 GET {{baseUrl}}/1
 Accept: application/json
 
-### Create new post
+### Get posts by user id
 
-POST {{baseUrl}}
+GET {{baseUrl}}/user/3
 Accept: application/json
 
-{"id": "2", "userId": "7", "Test title 2", "Test body 2"}
+
+### Create new post
+
+POST {{baseUrl}} HTTP/1.1
+Content-Type: application/json
+
+
+{ "id": "22", "userId": "3", "title": "My test title XXX", "body": "My test body XXX" }
 
 ### Update some post
 
-PUT {{baseUrl}}/2
-Accept: application/json
+PUT {{baseUrl}}/22
+Content-Type: application/json
 
-{"id": "2", "userId": "8", "Test title 2 updated", "Test body 2 updated"}
+{"title": "Test title 22 updated"}
 
 ### Delete some post
 
-DELETE {{baseUrl}}/2
+DELETE {{baseUrl}}/22
+
+# EXTERNAL SERVICE REQUESTS
+### Get posts by user id
+
+GET {{externalService}}/posts?userId=7
 Accept: application/json
+
+### Get user by id
+
+GET {{externalService}}/users/1
+Accept: application/json
+
 
